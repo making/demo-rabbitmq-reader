@@ -73,6 +73,8 @@ curl https://demo-rabbitmq-sender-${NAMESPACE}.apps.jaguchi.maki.lol/send -d cou
 kubectl port-forward -n ${NAMESPACE} svc/demo-rabbitmq 15672:15672
 ```
 
+<img width="1024" alt="image" src="https://user-images.githubusercontent.com/106908/169724589-d5593d42-8be7-4cee-b53f-c20434c52c24.png">
+
 ```yaml
 cat <<EOF > /tmp/cronjob.yaml
 apiVersion: servicebinding.io/v1beta1
@@ -138,3 +140,5 @@ kubectl create job -n ${NAMESPACE} --from cronjob/demo-rabbitmq-reader demo-rabb
 kubectl create job -n ${NAMESPACE} --from cronjob/demo-rabbitmq-reader demo-rabbitmq-reader-${RANDOM}
 kubectl create job -n ${NAMESPACE} --from cronjob/demo-rabbitmq-reader demo-rabbitmq-reader-${RANDOM}
 ```
+
+<img width="1024" alt="image" src="https://user-images.githubusercontent.com/106908/169724643-1cd0472f-fefb-488e-a1bb-e1bbe2bd21f5.png">
