@@ -57,7 +57,7 @@ public class JobConfig {
 	@Bean
 	public Step step(AmqpItemReader<Hello> itemReader) {
 		final Logger logger = LoggerFactory.getLogger("demo");
-		return stepBuilderFactory.get("step").<Hello, String>chunk(30)
+		return stepBuilderFactory.get("step").<Hello, String>chunk(100)
 				.reader(itemReader)
 				.processor((ItemProcessor<? super Hello, ? extends String>) Hello::message)
 				.writer(items -> {
